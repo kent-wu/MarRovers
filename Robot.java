@@ -1,8 +1,8 @@
 package robot;
 
 public class Robot {
-	public static int x_bound;
-	public static int y_bound;
+	public int x_bound;
+	public int y_bound;
 	public int x;
 	public int y;
 	public char direction;
