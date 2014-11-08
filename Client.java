@@ -18,11 +18,38 @@ public class Client {
 
         while(true){
             System.out.println("Enter your Robot orders:");
-            String orderString = br.readLine();
-            System.out.println(robot.run(orderString));
+
+            char[] commands= br.readLine().toCharArray();
+            String result = excuteCommand(robot, commands);
+
+            System.out.println(result);
         }
         
 	}
+
+    public static String excuteCommand(Robot robot, char[] commands) {
+        for(char command : commands){
+            command=Character.toUpperCase(command);
+            switch (command){
+                case 'L':
+                    robot.turnLeft();
+                    break;
+                case 'R':
+                    robot.turnRight();
+                    break;
+                case 'M':
+                    robot.moveForward();
+                    break;
+                case 'B':
+                    robot.moveBack();
+                    break;
+            }
+            if(robot.checkError()){
+                return "RIP";
+            }
+        }
+        return robot.x+" "+robot.y+" "+robot.direction;
+    }
 
     private static void initPosition(BufferedReader br, Robot robot) throws IOException {
         String strInitPos = null;

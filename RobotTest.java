@@ -8,15 +8,15 @@ import junit.framework.Assert;
 public class RobotTest {
     @org.junit.Test
     public void testControlRight() throws Exception {
-        Robot r=new Robot();
-        r.x_bound =5;
-        r.y_bound =5;
-        r.x=1;
-        r.y=2;
-        r.direction ='N';
+        Robot robot=new Robot();
+        robot.x_bound =5;
+        robot.y_bound =5;
+        robot.x=1;
+        robot.y=2;
+        robot.direction ='N';
+        char[] commands = "LMLMLMLMM".toCharArray();
 
-
-        String result=r.run("LMLMLMLMM");
+        String result = Client.excuteCommand(robot, commands);
 
         Assert.assertEquals("1 3 N", result);
 
@@ -26,15 +26,15 @@ public class RobotTest {
 
     @org.junit.Test
     public void testControlRightAnother() throws Exception {
-        Robot r=new Robot();
-        r.x_bound =5;
-        r.y_bound =5;
-        r.x=3;
-        r.y=3;
-        r.direction ='E';
+        Robot robot=new Robot();
+        robot.x_bound =5;
+        robot.y_bound =5;
+        robot.x=3;
+        robot.y=3;
+        robot.direction ='E';
+        char[] commands = "MMRMMRMRRM".toCharArray();
 
-
-        String result=r.run("MMRMMRMRRM");
+        String result = Client.excuteCommand(robot, commands);
 
         Assert.assertEquals("5 1 E", result);
 
@@ -44,15 +44,15 @@ public class RobotTest {
 
     @org.junit.Test
     public void testControlError() throws Exception {
-        Robot r=new Robot();
-        r.x_bound =5;
-        r.y_bound =5;
-        r.x=4;
-        r.y=5;
-        r.direction ='N';
+        Robot robot=new Robot();
+        robot.x_bound =5;
+        robot.y_bound =5;
+        robot.x=4;
+        robot.y=5;
+        robot.direction ='N';
+        char[] commands = "MMM".toCharArray();
 
-
-        String result=r.run("MMM");
+        String result = Client.excuteCommand(robot, commands);
 
         Assert.assertEquals("RIP", result);
 
@@ -62,15 +62,15 @@ public class RobotTest {
 
     @org.junit.Test
     public void testControlBack() throws Exception {
-        Robot r=new Robot();
-        r.x_bound =5;
-        r.y_bound =5;
-        r.x=1;
-        r.y=2;
-        r.direction ='N';
+        Robot robot=new Robot();
+        robot.x_bound =5;
+        robot.y_bound =5;
+        robot.x=1;
+        robot.y=2;
+        robot.direction ='N';
+        char[] commands = "MMB".toCharArray();
 
-
-        String result=r.run("MMB");
+        String result = Client.excuteCommand(robot, commands);
 
         Assert.assertEquals("1 3 N", result);
 
