@@ -9,14 +9,14 @@ public class RobotTest {
     @org.junit.Test
     public void testControlRight() throws Exception {
         Robot r=new Robot();
-        r.X=5;
-        r.Y=5;
+        r.x_bound =5;
+        r.y_bound =5;
         r.x=1;
         r.y=2;
-        r.dir='N';
+        r.direction ='N';
 
 
-        String result=r.control("LMLMLMLMM");
+        String result=r.run("LMLMLMLMM");
 
         Assert.assertEquals("1 3 N", result);
 
@@ -27,14 +27,14 @@ public class RobotTest {
     @org.junit.Test
     public void testControlRightAnother() throws Exception {
         Robot r=new Robot();
-        r.X=5;
-        r.Y=5;
+        r.x_bound =5;
+        r.y_bound =5;
         r.x=3;
         r.y=3;
-        r.dir='E';
+        r.direction ='E';
 
 
-        String result=r.control("MMRMMRMRRM");
+        String result=r.run("MMRMMRMRRM");
 
         Assert.assertEquals("5 1 E", result);
 
@@ -45,14 +45,14 @@ public class RobotTest {
     @org.junit.Test
     public void testControlError() throws Exception {
         Robot r=new Robot();
-        r.X=5;
-        r.Y=5;
+        r.x_bound =5;
+        r.y_bound =5;
         r.x=4;
         r.y=5;
-        r.dir='N';
+        r.direction ='N';
 
 
-        String result=r.control("MMM");
+        String result=r.run("MMM");
 
         Assert.assertEquals("RIP", result);
 
@@ -63,14 +63,14 @@ public class RobotTest {
     @org.junit.Test
     public void testControlBack() throws Exception {
         Robot r=new Robot();
-        r.X=5;
-        r.Y=5;
+        r.x_bound =5;
+        r.y_bound =5;
         r.x=1;
         r.y=2;
-        r.dir='N';
+        r.direction ='N';
 
 
-        String result=r.control("MMB");
+        String result=r.run("MMB");
 
         Assert.assertEquals("1 3 N", result);
 
